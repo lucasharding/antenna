@@ -71,3 +71,4 @@ If you have questions about any aspect of this project, please feel free to [ope
 ## Contributing
 
 The main motivation for releasing the source of Antenna was a ways of distribution since Apple won't accept it to the App Store, so I'm not expecting many contributions. With that said, if you encounter any bugs, feel free to submit a pull request. If you are considering any larger feature development, please [open an issue](https://github.com/lucasharding/antenna/issues/new) first so we can discuss implementation.
+
