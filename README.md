@@ -1,4 +1,4 @@
-![Antenna](file:///Users/lucas/developer/antenna/Screenshots/wordmark.png)
+![Antenna](https://raw.githubusercontent.com/lucasharding/antenna/master/Screenshots/wordmark.png)
 
 [![Release](https://img.shields.io/github/release/lucasharding/antenna.svg)](https://github.com/lucasharding/antenna/releases/latest)
 ![Swift](https://img.shields.io/badge/swift-3.0-green.svg)
@@ -14,8 +14,8 @@ Antenna (formerly NTNA) is a live TV app for Apple TV powered by (but not affili
 
 PS. I haven't really touched this code in a while, and it's gone through some Xcode Swift auto-migrations, so there might be some oddities.
 
-![Screenshot](file:///Users/lucas/developer/antenna/Screenshots/01_streaming.png)
-![Screenshot](file:///Users/lucas/developer/antenna/Screenshots/02_guide.png)
+![Screenshot](https://raw.githubusercontent.com/lucasharding/antenna/master/Screenshots/01_streaming.png)
+![Screenshot](https://raw.githubusercontent.com/lucasharding/antenna/master/Screenshots/02_guide.png)
 
 ## Requirements
 
