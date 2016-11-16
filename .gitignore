@@ -1,0 +1,14 @@
+# CocoaPods
+.DS_Store
+Thumbs.db
+
+# CocoaPods
+Pods
+
+# Xcode
+build
+xcodeproj/*
+xcodeproj/project.pbxproj
+xcuserdata
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
