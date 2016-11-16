@@ -40,19 +40,19 @@ PS. I haven't really touched this code in a while, and it's gone through some Xc
 You'll need a few things before we get started. Make sure you have Xcode 8+ installed from the App Store or wherever. Then run the following two commands to install Xcode's command line tools and bundler, if you don't have that yet.
 
 ```
-[sudo] gem install bundler
+sudo gem install bundler
 xcode-select --install
 ```
 Then run the following to download and setup the project.
 
 ```
-git clone git@github.com:lucasharding/antenna.git
+git clone https://github.com/lucasharding/antenna.git
 cd antenna
 bundle install
 bundle exec pod install
 ```
 
-Now that we have the code downloaded, we can run the app using Xcode 8. Make sure to open the antenna.xcworkspace workspace, and not the antenna.xcodeproj project.
+Now that we have the code downloaded, you can run the app using Xcode 8. Make sure to open the **antenna.xcworkspace** workspace, and not the antenna.xcodeproj project.
 
 #### Updating
 
