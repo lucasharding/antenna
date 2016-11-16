@@ -27,21 +27,15 @@ PS. I haven't really touched this code in a while, and it's gone through some Xc
 
 ## Installing
 
-### Option 1 (Recommended): Sign the prebuilt .ipa
-
-1. Download the .ipa file from the [releases page](https://github.com/lucasharding/antenna/releases/latest).
-2. Follow the instructions [here](https://nzbunity.dozenzb.com/downloads/non-jailbroken/) to resign the app with your developer certificate. Of course substitute any references to nzbunity with antenna. (TODO: Write own version of these instructions)
-
-
-### Option 2: Build from source
+### Build from source
 
 #### Initial Setup
 
-You'll need a few things before we get started. Make sure you have Xcode 8+ installed from the App Store or wherever. Then run the following two commands to install Xcode's command line tools and bundler, if you don't have that yet.
+You'll need a few things before we get started. Make sure you have Xcode 8+ installed from the App Store. Then run the following two commands to install Xcode's command line tools and bundler, if you don't have those installed.
 
 ```
-sudo gem install bundler
 xcode-select --install
+sudo gem install bundler
 ```
 Then run the following to download and setup the project.
 
