@@ -55,7 +55,7 @@ open class GuideCollectionViewLayout : UICollectionViewLayout {
             self.frames.append(sectionFrames)
             self.channelHeaderFrames.append(CGRect(x: 0, y: currentY, width: self.channelWidth, height: self.rowHeight))
             
-            if let frame = sectionFrames.last {
+            if let frame = self.channelHeaderFrames.last {
                 currentY = Double(frame.maxY) + self.padding
             }
         }
