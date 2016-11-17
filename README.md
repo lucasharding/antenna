@@ -27,7 +27,12 @@ PS. I haven't really touched this code in a while, and it's gone through some Xc
 
 ## Installing
 
-### Build from source
+### Option 1 (Recommended): Sign the prebuilt .ipa
+
+1. Download the .ipa file from the [releases page](https://github.com/lucasharding/antenna/releases/latest).
+2. Follow the instructions [here](https://dantheman827.github.io/ios-app-signer/) to resign the app with your developer certificate. Of course substitute any references to kodi with antenna. The YouTube video will explain how to get the Top Shelf working as well.
+
+### Option 2: Build from source
 
 #### Initial Setup
 
