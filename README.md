@@ -48,6 +48,17 @@ bundle exec pod install
 
 Now that we have the code downloaded, you can run the app using Xcode 8. Make sure to open the **antenna.xcworkspace** workspace, and not the antenna.xcodeproj project.
 
+To be able to run on device you will need to change the App IDs. Follow these instructions:
+
+```
+1. In Xcode select the menu 'Find > Find and Replace in Workspace...'
+2. Enter 'com.lucasharding' into the search field
+3. Enter 'com.{youruniquename}' into the replace field
+4. Click 'Replace All'
+```
+
+You should be able to run and
+
 #### Updating
 
 Substitute ``~/development/antenna`` with the path to the project code
