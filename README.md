@@ -1,4 +1,4 @@
-![Antenna](https://raw.githubusercontent.com/lucasharding/antenna/master/Screenshots/wordmark.png)
+[![Antenna](https://raw.githubusercontent.com/lucasharding/antenna/master/Screenshots/wordmark.png)](https://lucasharding.github.io/antenna/)
 
 [![Release](https://img.shields.io/github/release/lucasharding/antenna.svg)](https://github.com/lucasharding/antenna/releases/latest)
 ![Swift](https://img.shields.io/badge/swift-3.0-green.svg)
