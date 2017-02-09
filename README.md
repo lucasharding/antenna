@@ -32,6 +32,15 @@ PS. I haven't really touched this code in a while, and it's gone through some Xc
 1. Download the .ipa file from the [releases page](https://github.com/lucasharding/antenna/releases/latest).
 2. Follow the instructions [here](https://dantheman827.github.io/ios-app-signer/) to resign the app with your developer certificate. Of course substitute any references to kodi with antenna. The YouTube video will explain how to get the Top Shelf working as well.
 
+**Note on how to get top shelf working**: Your main 'bundle identifier' and your 'app group identifiers' must be identical. And your top shelf's 'bundle identifier' must also be identical but with '.topshelf' appended.
+
+```
+Example:
+bundle identifier: com.johnsmith.antenna
+top shelf bundle identifier: com.johnsmith.antenna.topshelf
+app group bundle identifiers: com.johnsmith.antenna
+```
+
 ### Option 2: Build from source
 
 #### Initial Setup

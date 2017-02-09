@@ -22,7 +22,13 @@ open class TVPreferences {
     }()
     
     open static let sharedDefaults: UserDefaults = {
-        let sharedDefaults = UserDefaults(suiteName: "group.com.lucasharding.antenna")!
+        //This is a way to get around self-signing breaking App Groups because of changing identifiers
+        var appIdentifier = (Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? ""
+        appIdentifier = appIdentifier.replacingOccurrences(of: ".topshelf", with: "")
+        appIdentifier = appIdentifier.replacingOccurrences(of: ".topShelf", with: "")
+        appIdentifier = appIdentifier.replacingOccurrences(of: ".top_shelf", with: "")
+        
+        let sharedDefaults = UserDefaults(suiteName: "group.\(appIdentifier)")!
         return sharedDefaults
     }()
     

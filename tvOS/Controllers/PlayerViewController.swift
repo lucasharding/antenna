@@ -55,7 +55,10 @@ open class PlayerViewController : UIViewController, UIGestureRecognizerDelegate 
                     if channel.streamName != oldValue?.streamName {
                         TVService.sharedInstance.playChannel(channel) { url in
                             if let url = url {
-                                let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": ["User-Agent": TVService.sharedInstance.randomUserAgent]])
+                                let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": [
+                                    "User-Agent": TVService.sharedInstance.randomUserAgent,
+                                    "X-Playback-Session-Id": UUID().uuidString,
+                                    ]])
                                 self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
                                 self.player?.play()
                             }

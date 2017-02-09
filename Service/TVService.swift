@@ -31,6 +31,7 @@ open class TVService {
         get { return TVPreferences.sharedInstance.accountToken }
         set { TVPreferences.sharedInstance.accountToken = newValue }
     }
+    var key: String?
     
     open var isLoggedIn: Bool { get { return token != nil } }
     fileprivate var isLoginVerified: Bool = false {
@@ -156,19 +157,22 @@ open class TVService {
 
         return self.manager.request(self.baseURL.appendingPathComponent("live/channelguide"), method: .get, parameters: params).responseArray(keyPath: "results") { (response: DataResponse<[TVProgram]>) in
             completionHandler?(response.result.value, response.result.error)
+        }.responseJSON { response in
+            self.key = self._extractKey(json: response.result.value)
         }
     }
     
     @discardableResult open func playChannel(_ channel: TVChannel, completionHandler: @escaping (URL?) -> Void) -> DataRequest {
-        let params = ["streamname": channel.streamName ?? "", "stream_origin": channel.streamOrigin ?? "", "app_name": channel.streamAppName ?? "", "token": token ?? "", "passkey": "tbd", "extrato": "tbd"]
-        
-        return self.manager.request(self.baseURL.appendingPathComponent("live/viewlive"), method: .get, parameters: params).responseHTMLDocument  { r in
-            if let string = r.result.value?.at_css("video")?["src"] {
-                completionHandler(URL(string: string))
-            }
-            else {
+        var params = ["scode": channel.streamCode ?? "", "token": token ?? ""]
+        self.key.flatMap({ params["key"] = $0 })
+
+        return self.manager.request("http://m.ustvnow.com/stream/1/live/view", method: .get, parameters: params).responseJSON  { r in
+            guard let json = r.result.value as? [String: Any], let urlString = json["stream"] as? String else {
                 completionHandler(nil)
+                return
             }
+
+            completionHandler(URL(string: urlString))
         }
     }
     
@@ -205,19 +209,22 @@ open class TVService {
         return self.manager.request(self.baseURL.appendingPathComponent("dvr/viewdvrlist"), method: .get, parameters: ["token": token ?? ""]).responseArray(keyPath: "results") {
             (r: DataResponse<[TVRecording]>) in
             completionHandler(r.result.value, r.result.error)
+        }.responseJSON { response in
+            self.key = self._extractKey(json: response.result.value)
         }
     }
 
     @discardableResult open func playRecording(_ recording: TVRecording, completionHandler: @escaping (URL?) -> Void) -> Request {
-        let params = ["streamname": recording.dvrFilenameSMIL ?? "", "dvrlocation": recording.dvrLocation ?? "", "token": token ?? "", "streamtype": "smil"]
+        var params = ["scheduleid": recording.scheduleID, "token": token ?? ""] as [String: Any]
+        self.key.flatMap({ params["key"] = $0 })
         
-        return self.manager.request(self.baseURL.appendingPathComponent("dvr/viewdvr"), method: .get, parameters: params).responseXMLDocument { r in
-            if let videoString = r.result.value?.at_css("video")?["src"] {
-                completionHandler(URL(string: videoString))
-            }
-            else {
+        return self.manager.request("http://m.ustvnow.com/stream/1/dvr/play", method: .get, parameters: params).responseJSON  { r in
+            guard let json = r.result.value as? [String: Any], let urlString = json["stream"] as? String else {
                 completionHandler(nil)
+                return
             }
+            
+            completionHandler(URL(string: urlString))
         }
     }
     
@@ -228,6 +235,17 @@ open class TVService {
             (response: DataResponse<[TVSearchProgram]>) in
             completionHandler(response.result.value, response.result.error)
         }
+    }
+    
+    private func _extractKey(json: Any?) -> String? {
+        guard
+            let json = json as? [String: Any],
+            let jsonParams = json["globalparams"] as? [String: Any],
+            let keyParam = jsonParams["passkey"] as? String,
+            let key = keyParam.components(separatedBy: "=").last
+        else { return nil }
+        
+        return key
     }
     
 }

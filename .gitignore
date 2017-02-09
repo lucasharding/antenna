@@ -12,3 +12,5 @@ xcodeproj/project.pbxproj
 xcuserdata
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
+Gemfile.lock
+Podfile.lock

@@ -18,7 +18,10 @@ class RecordingPlayerViewController : AVPlayerViewController {
                     TVService.sharedInstance.playRecording(recording) {
                         url in
                         if let url = url {
-                            let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": ["User-Agent": TVService.sharedInstance.randomUserAgent]])
+                            let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": [
+                                "User-Agent": TVService.sharedInstance.randomUserAgent,
+                                "X-Playback-Session-Id": UUID().uuidString,
+                                ]])
                             let mediaItem = AVPlayerItem(asset: asset)
                             
                             self.player = AVPlayer(playerItem: mediaItem)
