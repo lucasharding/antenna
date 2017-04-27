@@ -116,7 +116,6 @@ open class TVGuide {
         var channels = self.allSortedChannels
         
         //Filter
-        self.channelsFilter = (self.channelsFilter)
         if self.channelsFilter != nil {
             if self.channelsFilter!() == .Favorites {
                 channels = channels.filter({ TVPreferences.sharedInstance.isFavoriteChannel($0) })
