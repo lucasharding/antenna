@@ -141,7 +141,6 @@
 		A0808A571D35860C00810D5C /* ChannelReorderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0808A541D35860C00810D5C /* ChannelReorderTableViewCell.swift */; };
 		A0808A581D35860C00810D5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0808A551D35860C00810D5C /* SettingsViewController.swift */; };
 		A09286C31BE1CCA200DDC7D9 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1A8011BA2B41900CCAE34 /* TVServices.framework */; };
-		A09286CA1BE1CCA200DDC7D9 /* antenna-tvos-extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A09286C21BE1CCA200DDC7D9 /* antenna-tvos-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A09286CF1BE1CCD100DDC7D9 /* TVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A078851BA3DFF4009C6858 /* TVService.swift */; };
 		A09286D01BE1CCD100DDC7D9 /* TVGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A078831BA3DFF4009C6858 /* TVGuide.swift */; };
 		A09286D11BE1CCD100DDC7D9 /* TVChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A078821BA3DFF4009C6858 /* TVChannel.swift */; };
@@ -193,6 +192,7 @@
 		A0E6D19D1EB7124D007A3C60 /* topshelf_bbca.png in Resources */ = {isa = PBXBuildFile; fileRef = A0E6D19A1EB7124D007A3C60 /* topshelf_bbca.png */; };
 		A0E6D19F1EB7124D007A3C60 /* topshelf_msnbc.png in Resources */ = {isa = PBXBuildFile; fileRef = A0E6D19B1EB7124D007A3C60 /* topshelf_msnbc.png */; };
 		A0E6D1A01EB7124D007A3C60 /* topshelf_msnbc.png in Resources */ = {isa = PBXBuildFile; fileRef = A0E6D19B1EB7124D007A3C60 /* topshelf_msnbc.png */; };
+		A0E6D1A21EB72111007A3C60 /* antenna-tvos-extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A09286C21BE1CCA200DDC7D9 /* antenna-tvos-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A0E7D65D1C5808950062CD7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7D65C1C5808950062CD7D /* SearchViewController.swift */; };
 		A0F9FF881C33A1DA005C9287 /* topshelf_fox.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F9FF871C33A1DA005C9287 /* topshelf_fox.png */; };
 		A0F9FF891C33A1DA005C9287 /* topshelf_fox.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F9FF871C33A1DA005C9287 /* topshelf_fox.png */; };
@@ -215,7 +215,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A09286CA1BE1CCA200DDC7D9 /* antenna-tvos-extension.appex in Embed App Extensions */,
+				A0E6D1A21EB72111007A3C60 /* antenna-tvos-extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,7 +642,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Lucas Harding";
 				TargetAttributes = {
 					A0043B321BDF318600068985 = {
@@ -1012,7 +1012,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4EDD7A198826FC3217A3531B /* Pods-antenna-tvos.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "tvOS/antenna-tvos.entitlements";
@@ -1034,7 +1034,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0DC88319F902D31B2C832B68 /* Pods-antenna-tvos.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "tvOS/antenna-tvos.entitlements";
@@ -1056,7 +1056,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9C97A997E4F64F24D96CD06 /* Pods-antenna-tvos-extension.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = "tvOS Extension/antenna-tvos-extension.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1076,7 +1076,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B44D56EA5F45761E3C62854 /* Pods-antenna-tvos-extension.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = "tvOS Extension/antenna-tvos-extension.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1085,6 +1085,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasharding.antenna.topshelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1111,6 +1112,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
